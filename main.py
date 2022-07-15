@@ -6,7 +6,7 @@ import re
 
 Keyword = input("Please enter keyword: ")
 
-#MingPao
+#MingPao Daily
 
 testing_file = open(r"C:\Users\user\Desktop\testing.txt", "a", encoding='UTF-8')
 
