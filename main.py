@@ -8,7 +8,7 @@ Keyword = input("Please enter keyword: ")
 
 #MingPao Daily
 
-testing_file = open(r"C:\Users\user\Desktop\testing.txt", "a", encoding='UTF-8')
+testing_file = open(r"C:\Users\user\PycharmProjects\web_scraping\testing.txt", "w", encoding='UTF-8')
 
 testing_file.write("MingPao - " + "\n" + "\n")
 
@@ -32,6 +32,8 @@ for i in range(len(Mingpao_list_of_tag)):
     testing_file.write(Mingpao_list_of_tag[i]["href"] + "\n" + "\n")
 
 #RTHK
+
+testing_file.write("RTHK - " + "\n" + "\n")
 
 RTHK_result = requests.get("https://news.rthk.hk/rthk/ch/latest-news.htm")
 RTHK_soup = bs(RTHK_result.content, "html.parser")
