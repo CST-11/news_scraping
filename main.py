@@ -46,8 +46,19 @@ for i in range(len(RTHK_all_related_news)):
     testing_file.write(RTHK_all_related_news[i].string + "\n") # <a title=> xxxx </a>
     testing_file.write(RTHK_all_related_news[i]["href"] + "\n" + "\n")
 
-testing_file.close()
+#HK01
+testing_file.write("HK01 - " + "\n" + "\n")
 
+HK01_result= requests.get("https://www.hk01.com/zone/1/%E6%B8%AF%E8%81%9E")
+HK01_soup = bs(HK01_result.content, "html.parser")
+
+HK01_list_of_tag = HK01_soup.find_all("a",string=re.compile(Keyword))
+
+for i in range(len(HK01_list_of_tag)):
+    testing_file.write(HK01_list_of_tag[i].string + "\n")
+    testing_file.write("https://www.hk01.com"+HK01_list_of_tag[i]["href"] + "\n" + "\n")
+
+testing_file.close()
 
 
 
