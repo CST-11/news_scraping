@@ -12,7 +12,7 @@ testing_file = open(r"C:\Users\user\PycharmProjects\web_scraping\testing.txt", "
 
 testing_file.write("MingPao - " + "\n" + "\n")
 
-Mingpao_result = requests.get("https://news.mingpao.com/ins/%E6%B8%AF%E8%81%9E/section/20220714/s00001")
+Mingpao_result = requests.get("https://news.mingpao.com/ins/%E5%8D%B3%E6%99%82%E6%96%B0%E8%81%9E/main")
 Mingpao_soup = bs(Mingpao_result.content, "html.parser")
 
 Mingpao_list_of_tag_title = Mingpao_soup.find_all("a",attrs={"title" : re.compile(Keyword)}) #
@@ -25,7 +25,7 @@ for i in range(len(Mingpao_list_of_tag_title)):
 
 for i in range(len(Mingpao_list_of_tag_title)):
     testing_file.write(Mingpao_list_of_tag_title[i]["title"] + "\n")
-    testing_file.write(Mingpao_list_of_tag_title[i]["href"] + "\n")
+    testing_file.write(Mingpao_list_of_tag_title[i]["href"] + "\n" + "\n")
 
 for i in range(len(Mingpao_list_of_tag)):
     testing_file.write(Mingpao_list_of_tag[i].string + "\n")
