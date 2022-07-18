@@ -1,67 +1,42 @@
 
-# Author: CHOI SHEUNG TING
+# Author: CHOI SHEUNG TING / CHIANG RUI
 from bs4 import BeautifulSoup as bs
 import requests
 import re
 
 Keyword = input("Please enter keyword: ")
 
-#MingPao Daily
-
 testing_file = open(r"C:\Users\user\PycharmProjects\web_scraping\testing.txt", "w", encoding='UTF-8')
 
-testing_file.write("MingPao - " + "\n" + "\n")
+def news_scraping (media, url, main_url):
+    testing_file.write(media + "\n" + "\n")
+    result = requests.get(url)
+    soup = bs(result.content, "html.parser")
 
-Mingpao_result = requests.get("https://news.mingpao.com/ins/%E5%8D%B3%E6%99%82%E6%96%B0%E8%81%9E/main")
-Mingpao_soup = bs(Mingpao_result.content, "html.parser")
+    list_of_tag_title = soup.find_all("a",attrs={"title" : re.compile(Keyword)})
+    list_of_tag = soup.find_all("a",string=re.compile(Keyword))
 
-Mingpao_list_of_tag_title = Mingpao_soup.find_all("a",attrs={"title" : re.compile(Keyword)}) #
-Mingpao_list_of_tag = Mingpao_soup.find_all("a",string=re.compile(Keyword))
+    for i in range(len(list_of_tag_title)):
+        testing_file.write(list_of_tag_title[i]["title"] + "\n")
+        if not list_of_tag_title[i]['href'].startswith("https://"):
+           testing_file.write(main_url+list_of_tag_title[i]["href"] + "\n" + "\n")
+        else:
+            testing_file.write(list_of_tag_title[i]["href"] + "\n" + "\n")
+    for i in range(len(list_of_tag)):
+        testing_file.write(list_of_tag[i].string + "\n")
+        if not list_of_tag[i]['href'].startswith("https://"):
+            testing_file.write(main_url + list_of_tag[i]["href"] + "\n" + "\n")
+        else:
+            testing_file.write(list_of_tag[i]["href"] + "\n" + "\n")
 
 
-for i in range(len(Mingpao_list_of_tag_title)):
-    if Mingpao_list_of_tag_title[i]['href'].startswith("../"):
-        Mingpao_list_of_tag_title[i]['href'] = "https://news.mingpao.com/" + Mingpao_list_of_tag_title[i]['href'][3:]
+news_scraping(media= "MingPao" , url= "https://news.mingpao.com/ins/%E5%8D%B3%E6%99%82%E6%96%B0%E8%81%9E/main", main_url= "https://news.mingpao.com/")
+news_scraping(media= "RTHK", url= "https://news.rthk.hk/rthk/ch/latest-news.htm", main_url=" ")
+news_scraping(media="HK01", url= "https://www.hk01.com/zone/1/%E6%B8%AF%E8%81%9E", main_url="https://www.hk01.com/")
+news_scraping(media="SingTao", url="https://std.stheadline.com/realtime/hongkong/%E5%8D%B3%E6%99%82-%E6%B8%AF%E8%81%9E", main_url="")
 
-for i in range(len(Mingpao_list_of_tag_title)):
-    testing_file.write(Mingpao_list_of_tag_title[i]["title"] + "\n")
-    testing_file.write(Mingpao_list_of_tag_title[i]["href"] + "\n" + "\n")
-
-for i in range(len(Mingpao_list_of_tag)):
-    testing_file.write(Mingpao_list_of_tag[i].string + "\n")
-    testing_file.write(Mingpao_list_of_tag[i]["href"] + "\n" + "\n")
-
-#RTHK
-
-testing_file.write("RTHK - " + "\n" + "\n")
-
-RTHK_result = requests.get("https://news.rthk.hk/rthk/ch/latest-news.htm")
-RTHK_soup = bs(RTHK_result.content, "html.parser")
-
-RTHK_all_related_news = RTHK_soup.find_all("a", string = re.compile(Keyword))
-
-# testing_file.write("RTHK - " + "\n" + "\n")
-
-for i in range(len(RTHK_all_related_news)):
-    testing_file.write(RTHK_all_related_news[i].string + "\n") # <a title=> xxxx </a>
-    testing_file.write(RTHK_all_related_news[i]["href"] + "\n" + "\n")
-
-#HK01
-testing_file.write("HK01 - " + "\n" + "\n")
-
-HK01_result= requests.get("https://www.hk01.com/zone/1/%E6%B8%AF%E8%81%9E")
-HK01_soup = bs(HK01_result.content, "html.parser")
-
-HK01_list_of_tag = HK01_soup.find_all("a",string=re.compile(Keyword))
-
-for i in range(len(HK01_list_of_tag)):
-    testing_file.write(HK01_list_of_tag[i].string + "\n")
-    testing_file.write("https://www.hk01.com"+HK01_list_of_tag[i]["href"] + "\n" + "\n")
 
 testing_file.close()
-
-
-
 
 
 
