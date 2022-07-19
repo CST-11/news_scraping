@@ -4,10 +4,12 @@ from bs4 import BeautifulSoup as bs
 import requests
 import re
 
+
 Keyword = input("Please enter keyword: ")
 
-# testing_file = open(r"C:\Users\user\PycharmProjects\web_scraping\testing.txt", "w", encoding='UTF-8')
-testing_file = open(r"testing.txt", "w", encoding='UTF-8')
+
+testing_file = open(r"C:\Users\user\PycharmProjects\web_scraping\testing.txt", "w", encoding='UTF-8')
+
 
 def news_scraping (myList):
     for k in range(len(myList)):
@@ -39,8 +41,15 @@ def news_scraping (myList):
 myList = [{"media": "MingPao","url":"https://news.mingpao.com/ins/%E5%8D%B3%E6%99%82%E6%96%B0%E8%81%9E/main", "main_url":"https://news.mingpao.com/"},
           {"media": "RTHK","url":"https://news.rthk.hk/rthk/ch/latest-news.htm", "main_url":""},
           {"media": "SingTao","url":"https://std.stheadline.com/realtime/hongkong/%E5%8D%B3%E6%99%82-%E6%B8%AF%E8%81%9E", "main_url":""},
+<<<<<<< HEAD
           {"media": "HK01","url":"https://std.stheadline.com/realtime/hongkong/%E5%8D%B3%E6%99%82-%E6%B8%AF%E8%81%9E", "main_url":""},
           {"media":"Oriental_Daily", "url": "https://hk.on.cc/hk/news/mobile/index.html","main_url":""}]
+=======
+          {"media": "HK01","url":"https://www.hk01.com/zone/1/%E6%B8%AF%E8%81%9E", "main_url":""},
+          {"media": "HKET","url":"https://topick.hket.com/srat006/%E6%96%B0%E8%81%9E", "main_url":"https://topick.hket.com"},
+          {"media": "EJ","url":"https://www2.hkej.com/instantnews/current", "main_url":"https://www2.hkej.com/"}]
+
+>>>>>>> 8babf7e40b4e95007fab53aab0ea46e1b78100fb
 
 
 testing_file.close()
