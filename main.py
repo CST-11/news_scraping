@@ -6,7 +6,8 @@ import re
 
 Keyword = input("Please enter keyword: ")
 
-testing_file = open(r"C:\Users\user\PycharmProjects\web_scraping\testing.txt", "w", encoding='UTF-8')
+# testing_file = open(r"C:\Users\user\PycharmProjects\web_scraping\testing.txt", "w", encoding='UTF-8')
+testing_file = open(r"testing.txt", "w", encoding='UTF-8')
 
 def news_scraping (media, url, main_url):
     testing_file.write(media + "\n" + "\n")
