@@ -63,4 +63,3 @@ def TVB():
         print(i.text)
         print(i.get_attribute("href"))
     driver.quit()
-
