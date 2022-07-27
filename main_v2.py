@@ -45,7 +45,7 @@ myList = [{"media": "MingPao","url":"https://news.mingpao.com/ins/%E5%8D%B3%E6%9
           {"media": "HK01","url":"https://std.stheadline.com/realtime/hongkong/%E5%8D%B3%E6%99%82-%E6%B8%AF%E8%81%9E", "main_url":""},
           {"media":"Oriental_Daily", "url": "https://hk.on.cc/hk/news/mobile/index.html","main_url":""},
 
-          {"media": "HK01","url":"https://www.hk01.com/zone/1/%E6%B8%AF%E8%81%9E", "main_url":""},
+          {"media": "HK01","url":"https://www.hk01.com/zone/1/%E6%B8%AF%E8%81%9E", "main_url":"https://www.hk01.com/"},
           {"media": "HKET","url":"https://topick.hket.com/srat006/%E6%96%B0%E8%81%9E", "main_url":"https://topick.hket.com"},
           {"media": "EJ","url":"https://www2.hkej.com/instantnews/current", "main_url":"https://www2.hkej.com/"}]
 
