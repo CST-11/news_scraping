@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51d7739f-237e-4bd6-b3d9-d8c3379d3b4f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BS + Selenium by Chrome (exe).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS + Selenium (exe).py" beforeDir="false" afterPath="$PROJECT_DIR$/BS + Selenium by ChromeBeta (exe).py" afterDir="false" />
-    </list>
+    <list default="true" id="51d7739f-237e-4bd6-b3d9-d8c3379d3b4f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +36,7 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ＰＣ/PycharmProjects/pythonProject/web_scraping&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ＰＣ/PycharmProjects/pythonProject/speech2text&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
