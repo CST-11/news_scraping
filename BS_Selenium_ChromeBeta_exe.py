@@ -1,4 +1,5 @@
 import time
+import datetime
 import os
 from bs4 import BeautifulSoup as bs
 import requests
@@ -9,13 +10,10 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 
-
 path_of_program_folder = os.path.dirname(os.path.abspath(__file__))
 Path_of_Chromedriver = path_of_program_folder+"\Chrome Beta\chromedriver.exe"
 Path_of_ChromeBeta = path_of_program_folder+"\Chrome Beta\Application\chrome.exe"
 Path_of_output_file = path_of_program_folder+"\search_result.txt"
-
-
 
 print("News titles in the following websites will be searched - ")
 print("Chi: (1) MingPao (2) RTHK (3) SingTao (4) HK01  (5) ET  (6) EJ (7)AM730")
@@ -31,12 +29,35 @@ if language_option != "a":
         time.sleep(3)
         quit()
 
-number_of_keyword = int(input("How many keyword you would like to search for: "))
+select_keyword_method = input("Search for (a) keywords in keyword file / (b) specify other keywords: ")
 
 list_of_keyword = []
-for i in range(number_of_keyword):
-    list_of_keyword.append(input("Please enter keyword no. "+ str(i+1) + " : "))
+if select_keyword_method == "a":
+    if language_option == "a":
+        path_of_keyword_file = path_of_program_folder+"\keyword_chi.txt"
+        keyword_file= open(path_of_keyword_file,'r', encoding='UTF-8')
+        for line in keyword_file:
+            line = line.replace("\n", "")
+            list_of_keyword.append(line)
+        keyword_file.close()
+    elif language_option == "b":
+        path_of_keyword_file = path_of_program_folder + "\keyword_eng.txt"
+        keyword_file= open(path_of_keyword_file,'r', encoding='UTF-8')
+        for line in keyword_file:
+            line = line.replace("\n", "")
+            list_of_keyword.append(line)
+        keyword_file.close()
+elif select_keyword_method == "b":
+    number_of_keyword = int(input("How many keyword you would like to search for: "))
+    for i in range(number_of_keyword):
+        list_of_keyword.append(input("Please enter keyword no. "+ str(i+1) + " : "))
+else:
+    print("Invalid option. Exiting program.")
+    time.sleep(3)
+    quit()
+
 all_keyword = '|'.join(list_of_keyword)
+
 
 
 start = time.time()
@@ -87,7 +108,8 @@ myList_BS = [{"media": "MingPao","url":"https://news.mingpao.com/ins/%E5%8D%B3%E
              {"media": "HK01 政情","url":"https://www.hk01.com/channel/310/%E6%94%BF%E6%83%85", "main_url":"https://www.hk01.com"},
              {"media": "HKET","url":"https://topick.hket.com/srat006/%E6%96%B0%E8%81%9E", "main_url":"https://topick.hket.com"},
              {"media": "EJ","url":"https://www2.hkej.com/instantnews/current", "main_url":"https://www2.hkej.com/"},
-             {"media": "AM730 港聞","url":"https://www.am730.com.hk/%E6%9C%AC%E5%9C%B0", "main_url":"https://www.am730.com.hk"}]
+             {"media": "AM730 港聞","url":"https://www.am730.com.hk/%E6%9C%AC%E5%9C%B0", "main_url":"https://www.am730.com.hk"},
+             {"media": "中通社","url":"http://www.hkcna.hk/index_col.jsp?channel=2804", "main_url":"http://www.hkcna.hk/"}]
 
 def search_by_XPATH(myList_XPATH):
     for k in range(len(myList_XPATH)):
@@ -96,7 +118,7 @@ def search_by_XPATH(myList_XPATH):
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         driver = webdriver.Chrome(options=options, service=Service(Path_of_Chromedriver))
         try:
-            driver.set_page_load_timeout(20)
+            driver.set_page_load_timeout(25)
             try:
                 driver.get(myList_XPATH[k]['url'])
             except TimeoutException:
@@ -123,8 +145,8 @@ myList_XPATH = [{"media": "商台","url":"https://www.881903.com/news/local", "X
                 {"media": "文匯網","url":"https://www.wenweipo.com/immed/hongkong", "XPATH":"//div[@class='story-item-title text-overflow']/a"},
                 {"media": "商報","url":"http://www.hkcd.com/hkcdweb/hongkongMacao.list.html", "XPATH":"//a[.//h6]"},
                 {"media": "點新聞","url":"https://www.dotdotnews.com/immed/hknews", "XPATH":"//div[@class='text']/h2/a"},
-                {"media": "中通社","url":"http://www.hkcna.hk/index_col.jsp?channel=2804", "XPATH":"//a"},
-                {"media": "東網","url":"https://hk.on.cc/hk/news/index.html", "XPATH":"//a"}]
+                {"media": "東網 大題","url":"https://hk.on.cc/hk/news/index.html", "XPATH":"//a[.//div]"},
+                {"media": "東網 細題","url":"https://hk.on.cc/hk/news/index.html", "XPATH":"//h1/a"}]
 
 def news_scraping_Eng (myList_BS_Eng):
     for k in range(len(myList_BS_Eng)):
@@ -210,7 +232,8 @@ else:
 
 end = time.time()
 time_taken = (end - start)/60
-testing_file.write("It took " + str(round(time_taken, 3)) + " minutes to finish searching.")
+testing_file.write("It took " + str(round(time_taken, 3)) + " minutes to finish searching."+"\n" + "\n")
+testing_file.write(str(datetime.datetime.now()))
 
 testing_file.close()
 
