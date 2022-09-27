@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51d7739f-237e-4bd6-b3d9-d8c3379d3b4f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/playground.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS_Selenium_ChromeBeta_exe.py" beforeDir="false" afterPath="$PROJECT_DIR$/BS_Selenium_ChromeBeta_exe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS_Selenium_ChromeBeta_exe.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content_analysis.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content_analysis_py.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyword_chi.txt" beforeDir="false" afterPath="$PROJECT_DIR$/keyword_chi.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyword_eng.txt" beforeDir="false" afterPath="$PROJECT_DIR$/keyword_eng.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_v2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_scraping_by_selenium.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/other_articles.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/search_result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/search_result.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +50,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/ＰＣ/PycharmProjects/pythonProject/news_scraping_tasks_scheduler",
+    "last_opened_file_path": "C:/Users/ＰＣ/PycharmProjects/pythonProject/web_scraping",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
