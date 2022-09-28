@@ -204,9 +204,9 @@ def email_alert(subject, body, to):
     msg['subject'] = subject
     msg['to'] = to
 
-    user = "your gmail address"
+    user = "dicksonchoi888@gmail.com"
     msg['from'] = user
-    password = "your gmail App password"
+    password = "gaprokmjiohdofoa"
 
     server = smtplib.SMTP("smtp.gmail.com", 587)
     server.starttls()
@@ -237,7 +237,7 @@ for line in read_search_results:
 butFirst = list_of_str_search_results[1:]
 eachInASeparateLine = "".join(butFirst)
 
-email_alert("Email title", str(eachInASeparateLine), "email receiver address")
+email_alert("Online news update", str(eachInASeparateLine), "dicksonchoi888@gmail.com")
 
 
 print("Search completed. Please take a look at search_result.txt !")
