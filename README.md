@@ -10,6 +10,7 @@ Python modules -
 [selenium](https://pypi.org/project/selenium/)
 
 Chrome Beta (Chrome version 104)
+
 Chrome driver 104
 
 **How to use**
@@ -18,7 +19,7 @@ An application folder of Chrome Beta should be placed in the root directory of t
 
 The program will ask the user to select a set of websites to be scraped (classified by Chinese or English). Then the user need to choose whether they would like to search for specific keywords, or the keywords saved in text files named by “keyword_chi” or “keyword_eng”.
 
-The program mainly consists of two parts. The first part uses Beautifulsoup4 and requests module to parse non-dynamic news websites and search for <a> tag, then re module will be used to check whether the link-text of <a>tag contains a specific keyword; the second part uses Selenium together with Chrome driver to open and load dynamic news websites, news titles will be located by using their direct XPATH. 
+The program mainly consists of two parts. The first part uses Beautifulsoup4 and requests module to parse non-dynamic news websites and search for "a" tag, then re module will be used to check whether the link-text of "a" tag contains a specific keyword; the second part uses Selenium together with Chrome driver to open and load dynamic news websites, news titles will be located by using their direct XPATH. 
 
 Results will be written in a text file named by "search_result". It will be saved in the root directory of the program.
 
@@ -26,7 +27,7 @@ To facilitate usage on Windows PC without Python, it is recommended to convert t
 
 **Automation**
 
-To facilitate automation, there is a version designed for using in combination with windows task scheduler. This version will not ask user to enter any keyword, it will only search for the keywords in the keyword text files. After scraping, the results in the text file will extracted, then sent as plain texts to a specified email account. Users can use windows task scheduler to create automated task on a routine basis.
+To facilitate automation, there is a version designed for using in combination with windows task scheduler. This version will not ask user to enter any keyword, it will only search for the keywords in the keyword text files. After scraping, the results in the text file will extracted, then sent as plain texts to a specified email account. Users can use windows task scheduler to create automated and scheduled task.
 
 **List of target news websites**
 
